@@ -1,23 +1,24 @@
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Saludar from './components/Saludar'
 
 function App() {
+  const user = {
+    nombre:'Estefanía',
+    edad:33,
+    color:'cyan'
+  }
+
+  const saludarFn = (name) => {
+    console.log("Hola " + name);
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <img src={logo} className="App-logo" alt="logo" />
+      <Saludar userInfo={user} saludarFn={saludarFn} />
     </div>
   );
 }
