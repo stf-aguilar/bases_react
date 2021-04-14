@@ -1,24 +1,47 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Button } from 'react-bootstrap';
+import { BrowserRouter as Router,Switch, Route, Link } from 'react-router-dom';
+import Contacto from './pages/Contacto';
+import Quien from './pages/QuienSoy';
 import './App.css';
-import Saludar from './components/Saludar'
 
 function App() {
-  const user = {
-    nombre:'Estefanía',
-    edad:33,
-    color:'cyan'
-  }
+  //const [stateCar, setStateCar] = useState(false);
+  //const [count, setCount] = useState(0);
 
-  const saludarFn = (name) => {
-    console.log("Hola " + name);
-  }
+  /*useEffect(() =>{
+    console.log("Total: "+count);
+  }, [count]);
+  
 
+  const encenderApagar = () => {
+    setStateCar(!stateCar);
+    setCount(count + 1);
+  }
+  */
 
   return (
     <div className="App">
-      <img src={logo} className="App-logo" alt="logo" />
-      <Saludar userInfo={user} saludarFn={saludarFn} />
+      <h1>React Bootstrap</h1>
+      <Router>
+        <div>
+          <Link to="/contacto">
+            <Button>Contacto</Button>
+          </Link>
+          <Link to="/quien">
+            <Button>Quién soy</Button>
+          </Link>
+        </div>
+
+        <Switch>
+          <Route path="/contacto">
+            <Contacto />
+          </Route>
+          <Route path="/quien">
+            <Quien />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
